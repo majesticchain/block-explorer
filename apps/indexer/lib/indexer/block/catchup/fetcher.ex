@@ -200,7 +200,7 @@ defmodule Indexer.Block.Catchup.Fetcher do
          first..last = range,
          sequence
        ) do
-    Logger.metadata(fetcher: :block_catchup, first_block_number: first, last_block_number: last)
+    # Logger.metadata(fetcher: :block_catchup, first_block_number: first, last_block_number: last)
 
     case fetch_and_import_range(block_fetcher, range) do
       {:ok, %{inserted: inserted, errors: errors}} ->
