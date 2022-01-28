@@ -69,7 +69,7 @@ defmodule Indexer.Block.Catchup.Fetcher do
           block_fetcher: %Block.Fetcher{json_rpc_named_arguments: json_rpc_named_arguments}
         } = state
       ) do
-    Logger.metadata(fetcher: :block_catchup)
+    # Logger.metadata(fetcher: :block_catchup)
 
     with {:ok, latest_block_number} <- fetch_last_block(json_rpc_named_arguments) do
       case latest_block_number do
