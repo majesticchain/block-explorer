@@ -80,7 +80,6 @@
       <% end %>
     </div>
 
-    <% version = version() %>
     <% version = "1.0" %>
     <%= unless ignore_version?(version) do %>
       <% release_link = release_link(version) %>
