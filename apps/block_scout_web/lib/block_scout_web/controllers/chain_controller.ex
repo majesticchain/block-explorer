@@ -31,7 +31,7 @@ defmodule BlockScoutWeb.ChainController do
           :standard
       end
 
-    exchange_rate = 0.1
+    exchange_rate = Market.get_exchange_rate(Explorer.coin()) || Token.null()
 
     transaction_stats = get_transaction_stats()
 
