@@ -244,6 +244,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   @include stats-item($dashboard-stats-item-border-color, $dashboard-stats-item-label-color, $dashboard-stats-item-value-color);
 
   .dashboard-banner-network-stats-item {
+    width: 200px;
     padding: 40px 40px 16px 24px;
     background-color: rgba($secondary, .1);
     border-radius: 8px;
