@@ -1,4 +1,4 @@
-<div class="modal fade" id="<%= if assigns[:status] do @status end %>StatusModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="<%= if assigns[:status] do @status end %>StatusModal" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
   <div class="modal-dialog modal-dialog-centered modal-status" role="document">
     <div class="modal-content">
       <div class="modal-status-graph modal-status-graph-<%= if assigns[:status] do @status end %>">
