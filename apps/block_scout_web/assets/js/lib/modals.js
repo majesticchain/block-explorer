@@ -58,7 +58,6 @@ export function openModal ($modal, unclosable) {
 
 export function openModalWithMessage ($modal, unclosable, message) {
   $modal.find('.modal-message').text(message)
-  openModal($modal, unclosable)
 }
 
 export function lockModal ($modal, $submitButton = null, spinnerText = '') {
@@ -106,21 +105,18 @@ export function openErrorModal (title, text, unclosable) {
   const $modal = $('#errorStatusModal')
   $modal.find('.modal-status-title').text(title)
   $modal.find('.modal-status-text').html(text)
-  openModal($modal, unclosable)
 }
 
 export function openWarningModal (title, text) {
   const $modal = $('#warningStatusModal')
   $modal.find('.modal-status-title').text(title)
   $modal.find('.modal-status-text').html(text)
-  openModal($modal)
 }
 
 export function openSuccessModal (title, text) {
   const $modal = $('#successStatusModal')
   $modal.find('.modal-status-title').text(title)
   $modal.find('.modal-status-text').html(text)
-  openModal($modal)
 }
 
 export function openQuestionModal (title, text, acceptCallback = null, exceptCallback = null, acceptText = 'Yes', exceptText = 'No') {
@@ -187,10 +183,8 @@ export function openQuestionModal (title, text, acceptCallback = null, exceptCal
     $except.attr('data-dismiss', 'modal')
   }
 
-  openModal($modal)
 }
 
 export function openQrModal () {
   const $modal = $('#qrModal')
-  openModal($modal)
 }
