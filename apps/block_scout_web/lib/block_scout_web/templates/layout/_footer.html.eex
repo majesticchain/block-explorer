@@ -64,6 +64,7 @@
             <%= for %{title: title, url: url} <- test_nets do %>
               <li><a href="<%= url %>" rel="noreferrer" class="footer-link"> <%= title %> </a></li>
             <% end %>
+              <li><a href="http://test.scan.majesticchain.io" rel="noreferrer" class="footer-link">Majestic Test Net</a></li>
           </ul>
         </div>
       <% end %>
