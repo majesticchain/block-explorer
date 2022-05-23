@@ -30,16 +30,16 @@ config :explorer, Explorer.Repo.Replica1,
 config :explorer, Explorer.Tracer, env: "dev", disabled?: true
 
 config :logger, :explorer,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/explorer.log")
 
 config :logger, :reading_token_functions,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/explorer/tokens/reading_functions.log"),
   metadata_filter: [fetcher: :token_functions]
 
 config :logger, :token_instances,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/explorer/tokens/token_instances.log"),
   metadata_filter: [fetcher: :token_instances]
 
