@@ -3,7 +3,7 @@ use Mix.Config
 config :indexer, Indexer.Tracer, env: "production", disabled?: true
 
 config :logger, :indexer,
-  level: :info,
+  level: :warn,
   path: Path.absname("logs/prod/indexer.log"),
   rotate: %{max_bytes: 52_428_800, keep: 19}
 
@@ -32,7 +32,7 @@ config :logger, :pending_transactions_to_refetch,
   rotate: %{max_bytes: 52_428_800, keep: 19}
 
 config :logger, :empty_blocks_to_refetch,
-  level: :info,
+  level: :warn,
   path: Path.absname("logs/prod/indexer/empty_blocks_to_refetch.log"),
   metadata_filter: [fetcher: :empty_blocks_to_refetch],
   rotate: %{max_bytes: 52_428_800, keep: 19}

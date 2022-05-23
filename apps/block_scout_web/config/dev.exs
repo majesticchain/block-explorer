@@ -75,11 +75,11 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
 config :block_scout_web, BlockScoutWeb.Tracer, env: "dev", disabled?: true
 
 config :logger, :block_scout_web,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/block_scout_web.log")
 
 config :logger, :api,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/api.log"),
   metadata_filter: [fetcher: :api]
 

@@ -30,7 +30,7 @@ config :explorer, Explorer.Repo.Replica1,
 config :explorer, Explorer.Tracer, env: "dev", disabled?: true
 
 config :logger, :explorer,
-  level: :debug,
+  level: :warn,
   path: Path.absname("logs/dev/explorer.log")
 
 config :logger, :reading_token_functions,
