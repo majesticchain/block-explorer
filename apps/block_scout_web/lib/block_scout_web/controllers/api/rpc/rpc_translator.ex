@@ -24,11 +24,9 @@ defmodule BlockScoutWeb.API.RPC.RPCTranslator do
   alias Phoenix.Controller
   alias Plug.Conn
 
-  APILogger.message(
-    "Current API rate limit #{inspect(Application.get_env(:block_scout_web, :api_rate_limit))} reqs/sec"
-  )
-
-  def init(opts), do: opts
+  def init(opts) do
+    opts
+  end
 
   def call(%Conn{params: %{"module" => module, "action" => action}} = conn, translations) do
     with true <- valid_api_request_path(conn),
