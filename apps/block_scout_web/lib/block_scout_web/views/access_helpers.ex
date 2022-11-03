@@ -8,6 +8,7 @@ defmodule BlockScoutWeb.AccessHelpers do
   alias BlockScoutWeb.API.APILogger
   alias BlockScoutWeb.API.RPC.RPCView
   alias BlockScoutWeb.WebRouter.Helpers
+  alias Explorer.Account.Api.Key, as: ApiKey
   alias Plug.Conn
 
   alias RemoteIp
@@ -81,10 +82,16 @@ defmodule BlockScoutWeb.AccessHelpers do
       ip = remote_ip_from_headers || remote_ip
       ip_string = to_string(:inet_parse.ntoa(ip))
 
+      plan = get_plan(conn.query_params)
+
       cond do
-        conn.query_params && Map.has_key?(conn.query_params, "apikey") &&
-            Map.get(conn.query_params, "apikey") == static_api_key ->
+        check_api_key(conn) && get_api_key(conn) == static_api_key ->
           rate_limit_by_key(static_api_key, api_rate_limit_by_key)
+
+        check_api_key(conn) && !is_nil(plan) ->
+          conn
+          |> get_api_key()
+          |> rate_limit_by_key(plan.max_req_per_second)
 
         Enum.member?(api_rate_limit_whitelisted_ips(), ip_string) ->
           rate_limit_by_ip(ip_string, api_rate_limit_by_ip)
@@ -95,6 +102,29 @@ defmodule BlockScoutWeb.AccessHelpers do
     end
   end
 
+<<<<<<< HEAD
+=======
+  defp check_api_key(conn) do
+    conn.query_params && Map.has_key?(conn.query_params, "apikey")
+  end
+
+  defp get_api_key(conn) do
+    Map.get(conn.query_params, "apikey")
+  end
+
+  defp get_plan(query_params) do
+    with true <- query_params && Map.has_key?(query_params, "apikey"),
+         api_key_value <- Map.get(query_params, "apikey"),
+         api_key <- ApiKey.api_key_with_plan_by_value(api_key_value),
+         false <- is_nil(api_key) do
+      api_key.identity.plan
+    else
+      _ ->
+        nil
+    end
+  end
+
+>>>>>>> master
   defp rate_limit_by_key(api_key, api_rate_limit_by_key) do
     case Hammer.check_rate("api-#{api_key}", 1_000, api_rate_limit_by_key) do
       {:allow, _count} ->

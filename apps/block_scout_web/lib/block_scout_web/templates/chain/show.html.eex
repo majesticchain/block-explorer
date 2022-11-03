@@ -2,7 +2,6 @@
   <div class="container">
     <div class="dashboard-banner">
       <!-- Graph and legend -->
-
       <!-- Stats -->
       <div class="dashboard-banner-network-plain-container">
         <div class="dashboard-banner-network-stats">

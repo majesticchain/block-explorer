@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -6,13 +6,6 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-
-port =
-  case System.get_env("PORT") && Integer.parse(System.get_env("PORT")) do
-    {port, _} -> port
-    :error -> nil
-    nil -> nil
-  end
 
 config :block_scout_web, BlockScoutWeb.Endpoint,
   secret_key_base:
@@ -32,6 +25,7 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
     certfile: System.get_env("CERTFILE") || "priv/cert/selfsigned.pem",
     keyfile: System.get_env("KEYFILE") || "priv/cert/selfsigned_key.pem"
   ],
+
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -86,3 +80,5 @@ config :logger, :api,
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
+
+config :block_scout_web, :captcha_helper, BlockScoutWeb.CaptchaHelper

@@ -8,3 +8,13 @@ $btn-line-color: $secondary !default;
   border-color: #000;
   border-radius: 8px;
 }
+
+.btn-line-inversed {
+  @include btn-line($btn-line-color, $btn-line-bg);
+}
+
+.btn-line-inversed:hover {
+  background-color: $btn-line-color;
+  color: $btn-line-bg;
+  text-decoration: none;
+}
