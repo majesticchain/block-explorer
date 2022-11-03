@@ -67,7 +67,7 @@ config :block_scout_web, :api_rate_limit,
   limit_by_key: api_rate_limit_by_key_value,
   limit_by_ip: api_rate_limit_by_ip_value,
   static_api_key: System.get_env("API_RATE_LIMIT_STATIC_API_KEY", nil),
-  whitelisted_ips: System.get_env("API_RATE_LIMIT_WHITELISTED_IPS", nil)
+  whitelisted_ips: System.get_env("API_RATE_LIMIT_WHITELISTED_IPS", nil),
   admin_panel_enabled: System.get_env("ADMIN_PANEL_ENABLED", "") == "true"
 
 
