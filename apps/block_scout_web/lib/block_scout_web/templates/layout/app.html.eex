@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title> Majestic Scan</title>
     <%= case @view_module do %>
       <% Elixir.BlockScoutWeb.ChainView -> %>
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/main-page.css") %>">
@@ -67,7 +68,7 @@
           document.getElementById("top-navbar").style.backgroundColor = "#282945";
         }
         if (document.getElementById("navbar-logo")) {
-          document.getElementById("navbar-logo").style.filter = "brightness(0) invert(1)";
+          document.getElementById("navbar-logo").style.filter = "brightness(1) invert(1)";
         }
         let modeChanger = document.getElementById("dark-mode-changer");
         if (modeChanger) {
