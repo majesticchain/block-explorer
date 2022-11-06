@@ -57,6 +57,10 @@ defmodule EthereumJSONRPC.FetchedBalance do
              block_quantity: EthereumJSONRPC.quantity(),
              hash_data: EthereumJSONRPC.hash()
   def request(%{id: id, block_quantity: block_quantity, hash_data: hash_data}) do
+    Logger.debug(fn -> "--------------" end)
+    Logger.debug(fn -> block_quantity end)
+    Logger.debug(fn -> hash_data end)
+    Logger.debug(fn -> "***************" end)
     EthereumJSONRPC.request(%{id: id, method: "eth_getBalance", params: [hash_data, block_quantity]})
   end
 end

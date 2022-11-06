@@ -92,6 +92,8 @@ defmodule Indexer.Fetcher.CoinBalance do
 
     Logger.debug(fn -> "fetching" end)
 
+    Logger.debug(fn -> json_rpc_named_arguments end)
+
     unique_filtered_entries
     |> Enum.map(&entry_to_params/1)
     |> EthereumJSONRPC.fetch_balances(json_rpc_named_arguments)
